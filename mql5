@@ -1,0 +1,108 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                        GOLD Impulse with Alert   |
+//|                                             forexroboteasy.com   |
+//|                                                Forex Robot Easy   |
+//+------------------------------------------------------------------+
+
+#include <AdvancedCurrencyIMPULSE.mqh>
+#include <CurrencyStrengthExotics.mqh>
+
+//+------------------------------------------------------------------+
+//| Global variables                                                  |
+//+------------------------------------------------------------------+
+AdvancedCurrencyIMPULSE impulse;
+CurrencyStrengthExotics strength;
+string symbol = 'XAUUSD'; // Additional symbol
+
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    //--- Initialize the Advanced Currency IMPULSE with ALERT
+    if (!impulse.Create(0, 'Impulse', 0, 0))
+    {
+        Print('Error creating Advanced Currency IMPULSE with ALERT');
+        return INIT_FAILED;
+    }
+    
+    //--- Initialize the Currency Strength Exotics
+    if (!strength.Create(0, 'Strength', 1, 0))
+    {
+        Print('Error creating Currency Strength Exotics');
+        return INIT_FAILED;
+    }
+    
+    //--- Add additional symbol to the ninth line
+    if (!strength.SetSymbol(8, symbol))
+    {
+        Print('Error adding additional symbol to the ninth line');
+        return INIT_FAILED;
+    }
+    
+    //--- Additional initialization
+    
+    return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//| Custom indicator deinitialization function                       |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    //--- Do necessary deinitialization
+}
+
+//+------------------------------------------------------------------+
+//| Custom indicator iteration function                              |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &time[],
+                const double &open[],
+                const double &high[],
+                const double &low[],
+                const double &close[],
+                const long &tick_volume[],
+                const long &volume[],
+                const int &spread[])
+{
+    //--- Do necessary calculations and processing
+    
+    return rates_total;
+}
+
+//+------------------------------------------------------------------+
+//| Custom trading functions                                         |
+//+------------------------------------------------------------------+
+void BuySignal()
+{
+    //--- Execute buy signal logic
+}
+
+void SellSignal()
+{
+    //--- Execute sell signal logic
+}
+
+//+------------------------------------------------------------------+
+//| Custom alert functions                                           |
+//+------------------------------------------------------------------+
+void Alert(const string &message)
+{
+    //--- Execute alert logic
+}
+
+//+------------------------------------------------------------------+
+//| Custom graphical functions                                       |
+//+------------------------------------------------------------------+
+void DrawAcceleration()
+{
+    //--- Draw graphical representation of currency strength acceleration
+}
+
+void DrawIndicator()
+{
+    //--- Draw graphical representation of GOLD Impulse Forex Strength Indicator
+}
